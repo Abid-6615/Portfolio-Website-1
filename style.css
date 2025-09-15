@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-video {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.main-section {
+    height: 90%;
+    width: 90%;
+    background-color: #4ad0ee25;
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    box-shadow: 5px 5px 20px 2px #4acfee;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+}
+
+nav h1 {
+    color: white;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 20px;
+    transition: 0.3s;
+}
+
+nav a:hover,
+.active {
+    color: #4acfee;
+    text-decoration: underline;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70%;
+    padding: 0 10%;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 60px;
+}
+
+.hero h2 {
+    font-size: 30px;
+    /* টেক্সটের সাইজ ৩০ পিক্সেল করে।  */
+    text-transform: uppercase;
+    /* সব লেখা বড় হাতের অক্ষরে (UPPERCASE) রূপান্তরিত হয়।  */
+    background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
+    /* টেক্সটে ডান দিকে যাওয়ার মতো গ্রেডিয়েন্ট রঙ ব্যবহার করা হয়েছে (এক রঙ থেকে আরেক রঙে ধাপে ধাপে পরিবর্তন হয়)।  */
+    background-size: 200%;
+    /* ব্যাকগ্রাউন্ড গ্রেডিয়েন্টকে দ্বিগুণ আকারে প্রসারিত করে, */
+    /* যাতে অ্যানিমেশন চলার সময় সুন্দরভাবে রঙ পরিবর্তন দেখা যায়।  */
+    background-clip: text;
+    -webkit-background-clip: text;
+    /* ব্যাকগ্রাউন্ড (গ্রেডিয়েন্ট রঙ) শুধু টেক্সটের ভেতরে দেখা যাবে, */
+    /* টেক্সটের চারপাশে নয়। 👉 -webkit- হলো ব্রাউজার কম্প্যাটিবিলিটির জন্য (Chrome, Safari)।  */
+    -webkit-text-fill-color: transparent;
+    /* টেক্সটের আসল রঙ অদৃশ্য (transparent) করে দেওয়া হয়, */
+    /* যাতে শুধু গ্রেডিয়েন্ট রঙ দেখা যায়।  */
+    animation: animate-gradient 2.5s linear infinite;
+    /* এইচ২ টেক্সটের গ্রেডিয়েন্টে অ্যানিমেশন চালানো হয়, */
+    /* যার নাম animate-gradient। 👉 এটা ২.৫ সেকেন্ডে একবার সম্পূর্ণ হবে, */
+    /* লিনিয়ার গতিতে এবং অনন্তবার (infinite) চলবে। */
+}
+
+@keyframes animate-gradient {
+    to {
+        background-position: 200%;
+        /* উপরে যে background-size: 200% দেওয়া আছে, চলমান ইফেক্টটির position 200% পর্যন্ত যাবে। */
+    }
+}
+
+.hero p {
+    max-width: 450px;
+    margin-top: 7px;
+    margin-bottom: 20px;
+}
+
+.hero-icon {
+    display: flex;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #4acfee;
+    border: 2px solid #4acfee;
+    border-radius: 40px;
+    box-shadow: 0 0 10px 2px #4acfee;
+    font-size: 16px;
+    font-weight: 900;
+    color: #0e1217;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: 0.3s;
+    text-wrap: nowrap;
+}
+
+.btn:hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: #4acfee;
+}
+
+.ul-icon {
+    display: flex;
+    align-items: center;
+}
+
+.ul-icon li {
+    list-style: none;
+    margin-left: 10px;
+}
+
+.ul-icon a {
+    display: inline-flex;
+    color: #4acfee;
+    border: 2px solid #4acfee;
+    padding: 8px;
+    font-size: 20px;
+    border-radius: 50px;
+    margin: 0 7px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.ul-icon a:hover {
+    background-color: #4acfee;
+    color: #0e1217;
+    box-shadow: 0 0 10px 2px #4acfee;
+}
+
+.image-box {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    /* border: 2px solid red; */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 0 10px 1px #4acfee;
+    transition: 0.5s;
+}
+
+.image-box:hover {
+    box-shadow: 0 0 25px 2px #4acfee;
+}
+
+.image-box img {
+    position: absolute;
+    width: 100%;
+    mix-blend-mode: lighten;
+}
+
+.cards {
+    display: flex;
+    padding: 0 10%;
+    justify-content: space-between;
+}
+
+.card-info {
+    display: flex;
+    align-items: center;
+    max-width: 120px;
+}
+
+.card-info h1 {
+    font-size: 55px;
+    background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+}
+
+.card-info p {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+
+
+
+
+@media (max-aspect-ratio: 16/9) {
+    .bg-video {
+        width: auto;
+        height: 100%;
+    }
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .bg-video {
+        width: 100%;
+        height: auto;
+    }
+}
